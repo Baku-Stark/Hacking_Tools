@@ -5,17 +5,39 @@ from socket import *
 
 from services import Colors, CurrentTime
 
+class Connection:
+    """
+    HackTools -> Connection | Tool to get the IP address information.
+    """
+
+    @staticmethod
+    def ip_address_hostname(url_site : str):
+        
+        try:
+            response = gethostbyname_ex(url_site)
+
+        except gaierror:
+            print(Colors.RED + f"[{__name__}] : {gaierror.strerror}" + Colors.END)
+
+        else:
+            print(
+            f"""
+                ● INFO ({url_site}):
+            +----------------- x ----------------
+            | Hostname: {response[0]}            
+            | IP: {response[2]}
+            +----------------- x ----------------
+            """
+            )
+
 class Ip_Address:
     """
     HackTools -> Ip_Address | Tool to get the IP address information.
-
-    args:
-        - ip_ad : str
     """
     
     @staticmethod
     def ip_v4(ip_ad : str):
-        req = requests.get(f"http://ip-api.com/json/{ip_ad}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query")
+        req = requests.get(f"http://ip-api.com/json/{ip_ad}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query", timeout=500)
         # print(req.json())
         
         if req.status_code == 200:
