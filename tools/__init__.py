@@ -1,4 +1,5 @@
 import requests
+import subprocess
 import concurrent.futures
 
 from socket import *
@@ -11,13 +12,12 @@ class Connection:
     """
 
     @staticmethod
-    def ip_address_hostname(url_site : str):
-        
+    def ip_address_hostname(url_site : str = "www.stackoverflow.com"):
         try:
             response = gethostbyname_ex(url_site)
 
-        except gaierror:
-            print(Colors.RED + f"[{__name__}] : {gaierror.strerror}" + Colors.END)
+        except gaierror as error_ip:
+            print(Colors.RED + f"[{__name__} - {__class__.__name__}] : {error_ip}" + Colors.END)
 
         else:
             print(
@@ -29,6 +29,22 @@ class Connection:
             +----------------- x ----------------
             """
             )
+
+    @staticmethod
+    def ping(url : str = "www.stackoverflow.com"):
+        try:
+            print(Colors.BLUE + "[-] Wait a few seconds (or minutes) for the analysis..." + Colors.END)
+            output = subprocess.Popen(["ping", "-c", "4", url], stdout = subprocess.PIPE, stderr = subprocess.PIPE).communicate()
+
+        except subprocess.CalledProcessError:
+            print(Colors.RED + f"[{__name__} - {__class__.__name__}] : {subprocess.CalledProcessError}" + Colors.END)
+        
+        else:
+            #PING www.stackoverflow.com (172.64.155.249) 56(84) bytes of data.\n64 bytes from 172.64.155.249 (172.64.155.249): icmp_seq=1 ttl=60 time=9.86 ms\n64 bytes from 172.64.155.249 (172.64.155.249): icmp_seq=2 ttl=60 time=12.6 ms\n64 bytes from 172.64.155.249 (172.64.155.249): icmp_seq=3 ttl=60 time=13.9 ms\n64 bytes from 172.64.155.249 (172.64.155.249): icmp_seq=4 ttl=60 time=10.9 ms\n\n--- www.stackoverflow.com ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 3004ms\nrtt min/avg/max/mdev = 9.864/11.792/13.877/1.544 ms\n'
+            res = str(output[0])[2:-1].split('\\n')
+
+            for i in res:
+                print(i)
 
 class Ip_Address:
     """

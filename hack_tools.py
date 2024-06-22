@@ -44,7 +44,7 @@ class HackTools:
                         print(Colors.PURPLE + Ip_Address.__doc__ + Colors.END)
                         print('\n')
 
-                        ip_ad = str(input(f"[{options[choice-1]}] Type a IP ADRESS >: "))
+                        ip_ad = str(input(f"[{options[choice-1]}] Type a IP ADRESS >: ")).strip()
                         Ip_Address.ip_v4(ip_ad)
                         print('\n' * 2)
                         print("=" * 50)
@@ -54,7 +54,7 @@ class HackTools:
                         print(Colors.PURPLE + Port_Scanner.__doc__ + Colors.END)
                         print('\n')
 
-                        host = str(input(f"[{options[choice-1]}] Type a HOST >: "))
+                        host = str(input(f"[{options[choice-1]}] Type a HOST >: ")).strip()
                         Port_Scanner(host).start()
                         print('\n' * 2)
                         print("=" * 50)
@@ -64,11 +64,12 @@ class HackTools:
                         print(Colors.PURPLE + Connection.__doc__ + Colors.END)
                         print('\n')
 
-                        url_site = str(input(f"[{options[choice-1]}] URL Site >: "))
+                        url_site = str(input(f"[{options[choice-1]}] URL Site >: ")).strip()
+                        Connection.ping()
                         Connection.ip_address_hostname(url_site)
                         print('\n' * 2)
                         print("=" * 50)
-
+                        
                     case _:
                         print("** BYE! **")
                         break
