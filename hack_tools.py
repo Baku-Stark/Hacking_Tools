@@ -1,5 +1,5 @@
-import os
-from services import Colors, CurrentTime, OperationalSys
+import platform
+from services import Colors, OperationalSys
 
 from tools import Port_Scanner, Ip_Address, Connection
 
@@ -14,6 +14,7 @@ class HackTools:
         print("=" * 50)
         print(Colors.CYAN + title.read() + Colors.END)
         print(Colors.BLUE + "\n- Author: Baku-Stark" + Colors.END)
+        print(Colors.BLUE + "\n- Copyright | Baku-Stark" + Colors.END)
         print("=" * 50)
         title.close()
 
@@ -71,8 +72,15 @@ class HackTools:
                         print("=" * 50)
                         
                     case _:
-                        print("** BYE! **")
                         break
 
 OperationalSys.clean_console()
-HackTools() if __name__ == '__main__' else None
+if __name__ == '__main__':
+    try:
+        HackTools() if platform.system().lower() == 'linux' else print(platform.system().lower())
+
+    except KeyboardInterrupt:
+        print(Colors.RED + KeyboardInterrupt + Colors.END)
+
+    finally:
+        print("** BYE! **")
