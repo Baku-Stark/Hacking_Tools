@@ -1,5 +1,5 @@
 # HackTools
-`🐍 | Baku-Stark Hacking Tools w Python 3`
+`🐍 | Baku-Stark Hacking Tools w/ Python 3`
 
 Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissionais de segurança e entusiastas de hacking! Este projeto oferece funcionalidades como verificação de endereços IP e scanner de portas. Desenvolvido por Baku-Stark, HackTools é um conjunto robusto e fácil de usar para realizar análises de rede e segurança.
 
@@ -10,14 +10,6 @@ Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissiona
 
 </div>
 
-## 🐉 | Índice
-
-- [Visão Geral](#visão-geral)
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação e Configuração](#instalação-e-configuração)
-- [Contato](#contato)
-
 ## 🐉 | Visão Geral
 
 HackTools é um conjunto de ferramentas projetado para realizar análises de segurança de redes. Ele inclui um verificador de endereços IP e um scanner de portas, que permitem identificar possíveis vulnerabilidades em sistemas e redes.
@@ -27,6 +19,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 - **IP Address**: Verifica informações detalhadas sobre um endereço IP, incluindo localização, ISP, e status de blacklist.
 
 - **Port Scanner**: Escaneia portas abertas em um endereço IP alvo, ajudando a identificar serviços em execução e possíveis pontos de vulnerabilidade.
+
+- **Email Validator**: Primeira versão simples: `só validar formato e domínio (MX)`.
 
 ## 🐉 | Tecnologias Utilizadas
 
@@ -60,6 +54,14 @@ Para instalar e configurar o HackTools, siga os passos abaixo:
     ```bash
     python hack_tools.py
     ```
+
+## 🐉 | Sistemas Operacionais
+
+- [x] **Linux**
+
+- [ ] **Windows**
+
+- [ ] **MacOS**
 
 ## 🐉 | Contato
 

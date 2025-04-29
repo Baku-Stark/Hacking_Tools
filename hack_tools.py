@@ -1,86 +1,123 @@
 import platform
 from services import Colors, OperationalSys
-
+from tools.email_validator import Email_Validator
 from tools import Port_Scanner, Ip_Address, Connection
 
 class HackTools:
     def __init__(self) -> None:
-        self.__menu()
-        self.__menu_choice()
+        self.title = self.load_title()
+        self.options = {
+            1: self.handle_ip_address,
+            2: self.handle_port_scanner,
+            3: self.handle_connection,
+            4: self.handle_email_validator
+        }
+        self.run()
 
-    @classmethod
-    def __menu(cls):
-        title = open("services/title.txt", "r", encoding="utf-8")
+    def load_title(self):
+        try:
+            with open("services/title.txt", "r", encoding="utf-8") as f:
+                return f.read()
+        except FileNotFoundError:
+            return "HackTools"
+
+    def show_menu(self):
         print("=" * 50)
-        print(Colors.CYAN + title.read() + Colors.END)
+        print(Colors.CYAN + self.title + Colors.END)
         print(Colors.BLUE + "\n- Author: Baku-Stark" + Colors.END)
         print(Colors.BLUE + "\n- Copyright | Baku-Stark" + Colors.END)
         print("=" * 50)
-        title.close()
+        print("\nAvailable Options:\n")
 
-    @classmethod
-    def __menu_choice(cls):
-        """
-        Menu Choice
-        """
-        options = [Ip_Address.__name__, Port_Scanner.__name__, Connection.__name__]
-        
+        for idx, func in self.options.items():
+            print(f"[ {idx} ] {func.__name__.replace('handle_', '').replace('_', ' ').title()}")
+
+        print(f"[ {len(self.options)+1} ] Exit")
+        print("=" * 50)
+
+    def run(self):
         while True:
-            for ind_, op in enumerate(options):
-                print(f"[ {ind_ + 1} ] {op}")
-            print(f"[ {len(options)+1} + ] Exit")
-            print('\n')
+            self.show_menu()
 
             try:
-                choice = int(input(f"[{__class__.__name__}] Choice a number: "))
+                choice = int(input(f"\n[{self.__class__.__name__}] Choose an option: "))
+            except ValueError:
+                print(Colors.RED + "[Error] Invalid input. Please enter a number." + Colors.END)
+                continue
 
-            except ValueError as v_error:
-                print(Colors.RED + f"[{cls.__name__}] : {v_error}" + Colors.END)
-                print("=" * 50)
+            if choice == len(self.options) + 1:
+                print(Colors.GREEN + "\nExiting HackTools. See you next time!" + Colors.END)
+                break
 
+            action = self.options.get(choice)
+            if action:
+                action()
             else:
-                match choice:
-                    case 1:
-                        print(f"└── Your choice : {options[choice-1]}")
-                        print(Colors.PURPLE + Ip_Address.__doc__ + Colors.END)
-                        print('\n')
+                print(Colors.RED + "[Error] Invalid choice. Try again." + Colors.END)
 
-                        ip_ad = str(input(f"[{options[choice-1]}] Type a IP ADRESS >: ")).strip()
-                        Ip_Address.ip_v4(ip_ad)
-                        print('\n' * 2)
-                        print("=" * 50)
+    def handle_ip_address(self):
+        print(Colors.PURPLE + Ip_Address.__doc__ + Colors.END)
+        ip = input("\n[IP Address] Enter a valid IPv4 address: ").strip()
 
-                    case 2:
-                        print(f"└── Your choice : {options[choice-1]}")
-                        print(Colors.PURPLE + Port_Scanner.__doc__ + Colors.END)
-                        print('\n')
+        if self.validate_ip(ip):
+            Ip_Address.ip_v4(ip)
+        else:
+            print(Colors.RED + "[Error] Invalid IP format!" + Colors.END)
 
-                        host = str(input(f"[{options[choice-1]}] Type a HOST >: ")).strip()
-                        Port_Scanner(host).start()
-                        print('\n' * 2)
-                        print("=" * 50)
+    def handle_port_scanner(self):
+        print(Colors.PURPLE + Port_Scanner.__doc__ + Colors.END)
+        host = input("\n[Port Scanner] Enter a host (IP or domain): ").strip()
+        try:
+            scanner = Port_Scanner(host)
+            scanner.start()
+        except Exception as e:
+            print(Colors.RED + f"[Error] Failed to scan ports: {e}" + Colors.END)
 
-                    case 3:
-                        print(f"└── Your choice : {options[choice-1]}")
-                        print(Colors.PURPLE + Connection.__doc__ + Colors.END)
-                        print('\n')
+    def handle_connection(self):
+        print(Colors.PURPLE + Connection.__doc__ + Colors.END)
+        url = input("\n[Connection] Enter a URL (without http/https): ").strip()
 
-                        url_site = str(input(f"[{options[choice-1]}] URL Site >: ")).strip()
-                        Connection.ping()
-                        Connection.ip_address_hostname(url_site)
-                        print('\n' * 2)
-                        print("=" * 50)
-                        
-                    case _:
-                        break
+        if url:
+            Connection.ping(url)
+            Connection.ip_address_hostname(url)
+        else:
+            print(Colors.RED + "[Error] URL cannot be empty!" + Colors.END)
 
+    def handle_email_validator(self):
+        print(Colors.PURPLE + Email_Validator.__doc__ + Colors.END)
+        email = input("\n[Email Validator] Enter an email address: ").strip()
+
+        if email:
+            Email_Validator.validate_email(email)
+        else:
+            print(Colors.RED + "[Error] Email cannot be empty!" + Colors.END)
+
+
+    @staticmethod
+    def validate_ip(ip):
+        parts = ip.split(".")
+        if len(parts) != 4:
+            return False
+        for item in parts:
+            if not item.isdigit():
+                return False
+            num = int(item)
+            if num < 0 or num > 255:
+                return False
+        return True
+
+# Clear console on start
 OperationalSys.clean_console()
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     try:
-        HackTools() if platform.system().lower() == 'linux' else print(platform.system().lower())
+        if platform.system().lower() == 'linux':
+            HackTools()
+        else:
+            print(Colors.RED + f"Unsupported system: {platform.system()}" + Colors.END)
 
     except KeyboardInterrupt:
-        print(Colors.RED + KeyboardInterrupt + Colors.END)
+        print(Colors.RED + "\n[!] KeyboardInterrupt detected. Exiting..." + Colors.END)
 
     finally:
-        print("** BYE! **")
+        print(Colors.BLUE + "\n** BYE! **" + Colors.END)
