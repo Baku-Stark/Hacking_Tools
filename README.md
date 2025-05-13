@@ -22,6 +22,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 
 - **Email Validator**: Primeira versão simples: `só validar formato e domínio (MX)`.
 
+- **Criptografia/Descriptografia**: Funcionalidades para encriptar e descriptar texto com (base 64, SHA3-256 e AES).
+
 ## 🐉 | Tecnologias Utilizadas
 
 - **Linguagem de Programação**: Python
