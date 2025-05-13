@@ -3,6 +3,7 @@ from services import Colors, OperationalSys
 from tools.email_validator import Email_Validator
 from tools.port_scanner import Port_Scanner
 from tools.connection import Connection, Ip_Address
+from tools.crypt import Encryptor, Decryptor
 
 class HackTools:
     def __init__(self) -> None:
@@ -11,7 +12,9 @@ class HackTools:
             1: self.handle_ip_address,
             2: self.handle_port_scanner,
             3: self.handle_connection,
-            4: self.handle_email_validator
+            4: self.handle_email_validator,
+            5: self.handle_encryptor,
+            6: self.handle_decryptor
         }
         self.run()
 
@@ -93,6 +96,43 @@ class HackTools:
         else:
             print(Colors.RED + "[Error] Email cannot be empty!" + Colors.END)
 
+    def handle_encryptor(self):
+        print(Colors.PURPLE + Encryptor.__doc__ + Colors.END)
+        user_text = input("\n[Encryptor] Enter text to encrypt: ").strip()
+
+        if not user_text:
+            print(Colors.RED + "[Error] Text cannot be empty!" + Colors.END)
+            return
+
+        aes_key = input("[Encryptor] Enter a key for AES encryption: ").strip()
+        if not aes_key:
+            print(Colors.RED + "[Error] Key is required for AES encryption!" + Colors.END)
+            return
+
+        # SHOW ALL CRYPT METHODS
+        Encryptor.base64_encode(user_text)
+        Encryptor.sha3_256_hash(user_text)
+        Encryptor.aes_encrypt(user_text, aes_key)
+
+
+    def handle_decryptor(self):
+        print(Colors.PURPLE + Decryptor.__doc__ + Colors.END)
+        user_text = input("\n[Decryptor] Enter AES encrypted (base64) text to decrypt: ").strip()
+        if not user_text:
+            return
+
+        aes_key = input("[Decryptor] Enter the AES key used for encryption: ").strip()
+        if not aes_key:
+            print(Colors.RED + "[Error] AES key is required!" + Colors.END)
+            return
+
+        # AES decoding attempt
+        Decryptor.aes_decrypt(user_text, aes_key)
+
+        # Base64 decoding attempt
+        decode_b64 = input("\n[Decryptor] Decode as Base64 too? (y/n): ").strip().lower()
+        if decode_b64 == 'y':
+            Decryptor.base64_decode(user_text)
 
     @staticmethod
     def validate_ip(ip):
