@@ -1,7 +1,8 @@
 import platform
 from services import Colors, OperationalSys
 from tools.email_validator import Email_Validator
-from tools import Port_Scanner, Ip_Address, Connection
+from tools.port_scanner import Port_Scanner
+from tools.connection import Connection, Ip_Address
 
 class HackTools:
     def __init__(self) -> None:
