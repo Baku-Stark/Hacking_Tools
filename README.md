@@ -12,9 +12,15 @@ Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissiona
 
 ## 🐉 | Visão Geral
 
+> [!IMPORTANT]\
+> O desenvolvimento do software HackTools serve para fins didáticos, visando ser um melhor **Ethical Hacker** na minha área.
+
 HackTools é um conjunto de ferramentas projetado para realizar análises de segurança de redes. Ele inclui um verificador de endereços IP e um scanner de portas, que permitem identificar possíveis vulnerabilidades em sistemas e redes.
 
 ## 🐉 | Funcionalidades
+
+> [!NOTE]\
+> Novas funcionalidades serão adicionadas nas próximas atualizações.
 
 - **IP Address**: Verifica informações detalhadas sobre um endereço IP, incluindo localização, ISP, e status de blacklist.
 
