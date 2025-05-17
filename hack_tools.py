@@ -4,6 +4,7 @@ from tools.email_validator import Email_Validator
 from tools.port_scanner import Port_Scanner
 from tools.connection import Connection, Ip_Address
 from tools.crypt import Encryptor, Decryptor
+from tools.password_generator import PasswordGenerator
 
 class HackTools:
     def __init__(self) -> None:
@@ -14,7 +15,8 @@ class HackTools:
             3: self.handle_connection,
             4: self.handle_email_validator,
             5: self.handle_encryptor,
-            6: self.handle_decryptor
+            6: self.handle_decryptor,
+            7: self.handle_password_generator
         }
         self.run()
 
@@ -133,6 +135,17 @@ class HackTools:
         decode_b64 = input("\n[Decryptor] Decode as Base64 too? (y/n): ").strip().lower()
         if decode_b64 == 'y':
             Decryptor.base64_decode(user_text)
+
+    def handle_password_generator(self):
+        print(Colors.PURPLE + PasswordGenerator.__doc__ + Colors.END)
+        level = str(input("Password Level (Use: simple, medium or strong): ")).strip().lower()
+        
+        try:
+            length = int(input("Type password lenght: "))
+        except ValueError:
+                print(Colors.RED + "[Error] Invalid Length!" + Colors.END)
+
+        PasswordGenerator.generate(level, length)
 
     @staticmethod
     def validate_ip(ip):
