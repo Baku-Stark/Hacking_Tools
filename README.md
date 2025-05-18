@@ -30,6 +30,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 
 - **Criptografia/Descriptografia**: Funcionalidades para encriptar e descriptar texto com (base 64, SHA3-256 e AES).
 
+- **Gerador de Senha**: O gerador possui diferentes níveis de força de senha e quantidades de caracteres que os usuários quiserem.
+
 ## 🐉 | Tecnologias Utilizadas
 
 - **Linguagem de Programação**: Python
