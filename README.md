@@ -1,7 +1,10 @@
-# HackTools
+# Hacking Tools
 `🐍 | Baku-Stark Hacking Tools w/ Python 3`
 
-Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissionais de segurança e entusiastas de hacking! Este projeto oferece funcionalidades como verificação de endereços IP e scanner de portas. Desenvolvido por Baku-Stark, HackTools é um conjunto robusto e fácil de usar para realizar análises de rede e segurança.
+Welcome to Hacking Tools, a collection of essential tools for security professionals and hacking enthusiasts! This project offers features likes IP Address Check and Port Scanner.
+Developed for Baku-Stark, HackTools is a robust and easy-to-use suite for performing network and security analysis.
+
+Readme Translate: **[Readme PT-BR `🇧🇷`](README%20pt-br.md)**
 
 <div align="center">
 
@@ -10,62 +13,62 @@ Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissiona
 
 </div>
 
-## 🐉 | Visão Geral
+## 🐉 | Overview
 
 > [!IMPORTANT]\
-> O desenvolvimento do software HackTools serve para fins didáticos, visando ser um melhor **Ethical Hacker** na minha área.
+> The development of the Hacking Tools software serves educational purposes, aiming to be a better **Ethical Hacker** in my field.
 
-HackTools é um conjunto de ferramentas projetado para realizar análises de segurança de redes. Ele inclui um verificador de endereços IP e um scanner de portas, que permitem identificar possíveis vulnerabilidades em sistemas e redes.
+HackTools is a suite of tools designed for performing network security analysis. It includes an IP address checker and a port scanner, which allow you to identify potential vulnerabilities in systems and networks.
 
-## 🐉 | Funcionalidades
+## 🐉 | Features
 
 > [!NOTE]\
-> Novas funcionalidades serão adicionadas nas próximas atualizações.
+> New features will be added in upcoming updates.
 
-- **IP Address**: Verifica informações detalhadas sobre um endereço IP, incluindo localização, ISP, e status de blacklist.
+- **IP Address**: Checks detailed information about an IP address, including location, ISP, and blacklist status.
 
-- **Port Scanner**: Escaneia portas abertas em um endereço IP alvo, ajudando a identificar serviços em execução e possíveis pontos de vulnerabilidade.
+- **Port Scanner**: Scan open ports on a target IP address, helping to identify running services and potential points of vulnerability.
 
-- **Email Validator**: Primeira versão simples: `só validar formato e domínio (MX)`.
+- **Email Validator**: First simple version: `just validate format and domain (MX)`.
 
-- **Criptografia/Descriptografia**: Funcionalidades para encriptar e descriptar texto com (base 64, SHA3-256 e AES).
+- **Encryption/Decryption**: Features to encrypt and decrypt text with (base 64, SHA3-256 and AES).
 
-- **Gerador de Senha**: O gerador possui diferentes níveis de força de senha e quantidades de caracteres que os usuários quiserem.
+- **Password Generator**: The generator has different levels of password strength and character counts that users want.
 
 ## 🐉 | Tecnologias Utilizadas
 
-- **Linguagem de Programação**: Python
-- **Bibliotecas**: [requirements.txt](/requirements.txt)
-- **Ambiente de Desenvolvimento**: Qualquer sistema com suporte a `Python ^3.11`.
+- **Language**: Python
+- **Libs**: [requirements.txt](/requirements.txt)
+- **Develop Ambient**: Any system that supports `Python ^3.11`.
 
-## 🐉 | Instalação e Configuração
+## 🐉 | Installation and Configuration
 
-Para instalar e configurar o HackTools, siga os passos abaixo:
+To install and configure HackTools, follow the steps below:
 
-1. **Clone o repositório:**
+1. **Clone Repository:**
     ```bash
     git clone https://github.com/Baku-Stark/Hacking_Tools.git
 
     cd HackTools
     ```
 
-2. **Crie um ambiente virtual e ative-o (opcional, mas recomendado):**
+2. **Create a virtual environment and activate it (optional, but recommended):**
     ```bash
     python3 -m venv venv
-    source venv/bin/activate  # No Windows use `venv\Scripts\activate`
+    source venv/bin/activate  # on Windows use `venv\Scripts\activate`
     ```
 
-3. **Instale as dependências:**
+3. **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4. **Ativando aplicação:**
+4. **Activating application:**
     ```bash
     python hack_tools.py
     ```
 
-## 🐉 | Sistemas Operacionais
+## 🐉 | Operational System
 
 - [x] **Linux**
 
@@ -73,9 +76,9 @@ Para instalar e configurar o HackTools, siga os passos abaixo:
 
 - [ ] **MacOS**
 
-## 🐉 | Contato
+## 🐉 | Contact
 
-Para dúvidas ou sugestões, entre em contato com o autor:
+For questions or suggestions, please contact the author:
 
 - **Autor**: Baku-Stark
 - **GitHub**: [Baku-Stark](https://github.com/Baku-Stark)
