@@ -5,6 +5,7 @@ from tools.port_scanner import Port_Scanner
 from tools.connection import Connection, Ip_Address
 from tools.crypt import Encryptor, Decryptor
 from tools.password_generator import PasswordGenerator
+from tools.whois_lookup import WhoisLookup
 
 class HackTools:
     def __init__(self) -> None:
@@ -16,7 +17,8 @@ class HackTools:
             4: self.handle_email_validator,
             5: self.handle_encryptor,
             6: self.handle_decryptor,
-            7: self.handle_password_generator
+            7: self.handle_password_generator,
+            8: self.handle_whois_lookup
         }
         self.run()
 
@@ -51,7 +53,7 @@ class HackTools:
                 print(Colors.RED + "[Error] Invalid input. Please enter a number." + Colors.END)
                 continue
 
-            if choice == len(self.options) + 1:
+            if choice == len(self.options) + 1: # EXIT OPTION
                 print(Colors.GREEN + "\nExiting HackTools. See you next time!" + Colors.END)
                 break
 
@@ -146,6 +148,21 @@ class HackTools:
                 print(Colors.RED + "[Error] Invalid Length!" + Colors.END)
 
         PasswordGenerator.generate(level, length)
+
+    def handle_whois_lookup(self):
+        print(Colors.PURPLE + WhoisLookup.__doc__ + Colors.END)
+        domains = input("\n[Whois Lookup] Enter domains or IPs (space-separated): ").strip()
+
+        if not domains:
+            print(Colors.RED + "[Error] Input cannot be empty!" + Colors.END)
+            return
+
+        save_path = input("[Whois Lookup] Enter path to save results (blank = ~/HackingTool_WhoisLookup): ").strip()
+        export_json = input("[Whois Lookup] Export as JSON? (y/n): ").strip().lower() == 'y'
+
+        domain_list = domains.split()
+        WhoisLookup.batch_lookup(domain_list, save_path, export_json)
+
 
     @staticmethod
     def validate_ip(ip):

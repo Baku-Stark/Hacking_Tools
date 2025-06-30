@@ -35,6 +35,8 @@ HackTools is a suite of tools designed for performing network security analysis.
 
 - **Password Generator**: The generator has different levels of password strength and character counts that users want.
 
+- **Whois Lookup**:  WHOIS query for domains or IPs, supports multiple, threading and exports to TXT or JSON.
+
 ## 🐉 | Tecnologias Utilizadas
 
 - **Language**: Python

@@ -32,6 +32,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 
 - **Gerador de Senha**: O gerador possui diferentes níveis de força de senha e quantidades de caracteres que os usuários quiserem.
 
+- **Whois Lookup**: Consulta WHOIS de domínios ou IPs, suporta múltiplos, threading e exporta para TXT ou JSON.
+
 ## 🐉 | Tecnologias Utilizadas
 
 - **Linguagem de Programação**: Python
