@@ -1,12 +1,13 @@
 # HackTools
 `🐍 | Baku-Stark Hacking Tools w/ Python 3`
 
-Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissionais de segurança e entusiastas de hacking! Este projeto oferece funcionalidades como verificação de endereços IP e scanner de portas. Desenvolvido por Baku-Stark, HackTools é um conjunto robusto e fácil de usar para realizar análises de rede e segurança.
+Bem-vindo ao HackTools, uma coleção de ferramentas essenciais para profissionais de segurança e entusiastas de hacking! Este projeto oferece funcionalidades como verificação de endereços IP e scanner de portas. 
+Desenvolvido por Baku-Stark, HackTools é um conjunto robusto e fácil de usar para realizar análises de rede e segurança.
 
 <div align="center">
 
 ![Python Version](https://img.shields.io/badge/Python-3.11.x-green)
-![Python Project](https://img.shields.io/badge/Python_|_Project-Version_2024.06-purple)
+![Python Project](https://img.shields.io/badge/Python_|_Project-Version_2025.06-purple)
 
 </div>
 
@@ -33,6 +34,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 - **Gerador de Senha**: O gerador possui diferentes níveis de força de senha e quantidades de caracteres que os usuários quiserem.
 
 - **Whois Lookup**: Consulta WHOIS de domínios ou IPs, suporta múltiplos, threading e exporta para TXT ou JSON.
+
+- **Metadata Extrator**: Extrator de arquivos e imagens
 
 ## 🐉 | Tecnologias Utilizadas
 
@@ -79,6 +82,8 @@ Para instalar e configurar o HackTools, siga os passos abaixo:
 
 Para dúvidas ou sugestões, entre em contato com o autor:
 
-- **Autor**: Baku-Stark
+**Autor**: Baku-Stark
+
 - **GitHub**: [Baku-Stark](https://github.com/Baku-Stark)
+- **GitLab**: [Wallace Baku-Stark](https://gitlab.com/Baku-Stark)
 - **E-mail**: wallacefmds360@outlook.com

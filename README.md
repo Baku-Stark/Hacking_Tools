@@ -9,7 +9,7 @@ Readme Translate: **[Readme PT-BR `🇧🇷`](README%20pt-br.md)**
 <div align="center">
 
 ![Python Version](https://img.shields.io/badge/Python-3.11.x-green)
-![Python Project](https://img.shields.io/badge/Python_|_Project-Version_2024.06-purple)
+![Python Project](https://img.shields.io/badge/Python_|_Project-Version_2025.06-purple)
 
 </div>
 
@@ -37,7 +37,9 @@ HackTools is a suite of tools designed for performing network security analysis.
 
 - **Whois Lookup**:  WHOIS query for domains or IPs, supports multiple, threading and exports to TXT or JSON.
 
-## 🐉 | Tecnologias Utilizadas
+- **Metadata Extrator**: file and images metadata extrator
+
+## 🐉 | Tools
 
 - **Language**: Python
 - **Libs**: [requirements.txt](/requirements.txt)
@@ -82,6 +84,8 @@ To install and configure HackTools, follow the steps below:
 
 For questions or suggestions, please contact the author:
 
-- **Autor**: Baku-Stark
+**Author**: Baku-Stark
+
 - **GitHub**: [Baku-Stark](https://github.com/Baku-Stark)
+- **GitLab**: [Wallace Baku-Stark](https://gitlab.com/Baku-Stark)
 - **E-mail**: wallacefmds360@outlook.com

@@ -6,6 +6,7 @@ from tools.connection import Connection, Ip_Address
 from tools.crypt import Encryptor, Decryptor
 from tools.password_generator import PasswordGenerator
 from tools.whois_lookup import WhoisLookup
+from tools.metadata_extractor import FileMetadataExtractor
 
 class HackTools:
     def __init__(self) -> None:
@@ -18,7 +19,8 @@ class HackTools:
             5: self.handle_encryptor,
             6: self.handle_decryptor,
             7: self.handle_password_generator,
-            8: self.handle_whois_lookup
+            8: self.handle_whois_lookup,
+            9: self.handle_file_metadata_extrator
         }
         self.run()
 
@@ -118,7 +120,6 @@ class HackTools:
         Encryptor.sha3_256_hash(user_text)
         Encryptor.aes_encrypt(user_text, aes_key)
 
-
     def handle_decryptor(self):
         print(Colors.PURPLE + Decryptor.__doc__ + Colors.END)
         user_text = input("\n[Decryptor] Enter AES encrypted (base64) text to decrypt: ").strip()
@@ -163,7 +164,6 @@ class HackTools:
         domain_list = domains.split()
         WhoisLookup.batch_lookup(domain_list, save_path, export_json)
 
-
     @staticmethod
     def validate_ip(ip):
         parts = ip.split(".")
@@ -176,6 +176,16 @@ class HackTools:
             if num < 0 or num > 255:
                 return False
         return True
+    
+    def handle_file_metadata_extrator(self):
+        print(Colors.PURPLE + FileMetadataExtractor.__doc__ + Colors.END)
+        path = input("\n[Metadata Extractor] Enter file path: ").strip()
+
+        if not path:
+            print(Colors.RED + "[Error] Path cannot be empty!" + Colors.END)
+            return
+
+        FileMetadataExtractor.extract(path)
 
 # Clear console on start
 OperationalSys.clean_console()
