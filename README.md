@@ -39,6 +39,8 @@ HackTools is a suite of tools designed for performing network security analysis.
 
 - **Metadata Extrator**: file and images metadata extrator
 
+- **Subdomain Finder**: Subdomain hunter according to the number of threads chosen.
+
 ## 🐉 | Tools
 
 - **Language**: Python

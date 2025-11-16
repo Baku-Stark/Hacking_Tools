@@ -7,6 +7,7 @@ from tools.crypt import Encryptor, Decryptor
 from tools.password_generator import PasswordGenerator
 from tools.whois_lookup import WhoisLookup
 from tools.metadata_extractor import FileMetadataExtractor
+from tools.subdomain_finder import SubdomainFinder
 
 class HackTools:
     def __init__(self) -> None:
@@ -20,7 +21,8 @@ class HackTools:
             6: self.handle_decryptor,
             7: self.handle_password_generator,
             8: self.handle_whois_lookup,
-            9: self.handle_file_metadata_extrator
+            9: self.handle_file_metadata_extrator,
+            10: self.handle_subdomain_finder
         }
         self.run()
 
@@ -42,7 +44,7 @@ class HackTools:
         for idx, func in self.options.items():
             print(f"[ {idx} ] {func.__name__.replace('handle_', '').replace('_', ' ').title()}")
 
-        print(f"[ {len(self.options)+1} ] Exit")
+        print(f"[ {len(self.options)+1} ] " + Colors.BACK_RED + "Exit" + Colors.END)
         print("=" * 50)
 
     def run(self):
@@ -186,6 +188,22 @@ class HackTools:
             return
 
         FileMetadataExtractor.extract(path)
+
+    def handle_subdomain_finder(self):
+        try:
+            print(Colors.PURPLE + SubdomainFinder.__doc__ + Colors.END)
+
+            domain = input("\n[Subdomain Finder] Type a domain URL: ").strip()
+            wordlist_path = input("Path of your wordlist. (~ Leave blank if you don't have one): ").strip()
+
+            thread_input = input("Choose number of threads (default: 30): ").strip()
+            thread_numbers = int(thread_input) if thread_input else 30
+
+            SubdomainFinder.find_subdomains(domain, wordlist_path, thread_numbers)
+
+        except ValueError:
+            print(Colors.RED + "Choose valid values for insertion" + Colors.END)
+
 
 # Clear console on start
 OperationalSys.clean_console()

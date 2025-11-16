@@ -37,6 +37,8 @@ HackTools é um conjunto de ferramentas projetado para realizar análises de seg
 
 - **Metadata Extrator**: Extrator de arquivos e imagens
 
+- **Subdomain Finder**: Procurador de subdomínios de acordo com o número de Threads escolhidas.
+
 ## 🐉 | Tecnologias Utilizadas
 
 - **Linguagem de Programação**: Python
